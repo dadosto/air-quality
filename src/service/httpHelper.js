@@ -1,7 +1,7 @@
 import request from 'superagent/lib/client';
 import preventRequestCaching from 'superagent-no-cache';
 
-const __DEV__ = 'dev';
+const __DEV__ = undefined;
 
 
 const CONVERSATION_ID_PARAM = 'conversationId';
@@ -50,7 +50,6 @@ function get(endpoint, params, headers, accept = '*/*') {
       headers.forEach((header) => getRequest.set(header.name, header.value));
     }
 
-    getRequest.set(CONVERSATION_ID_HEADER, currentConversationId);
     getRequest.set(LANG_HEADER, currentLang);
 
     getRequest
@@ -94,7 +93,6 @@ function post(endpoint, data, headers) {
       headers.forEach((header) => postRequest.set(header.name, header.value));
     }
 
-    postRequest.set(CONVERSATION_ID_HEADER, currentConversationId);
     postRequest.set(LANG_HEADER, currentLang);
 
     postRequest
@@ -138,7 +136,6 @@ function put(endpoint, data, params, headers) {
       headers.forEach((header) => putRequest.set(header.name, header.value));
     }
 
-    putRequest.set(CONVERSATION_ID_HEADER, currentConversationId);
     putRequest.set(LANG_HEADER, currentLang);
 
     putRequest
@@ -187,7 +184,6 @@ function del(endpoint, params, headers, accept = '*/*') {
       headers.forEach((header) => deleteRequest.set(header.name, header.value));
     }
 
-    deleteRequest.set(CONVERSATION_ID_HEADER, currentConversationId);
     deleteRequest.set(LANG_HEADER, currentLang);
 
     deleteRequest
@@ -285,19 +281,6 @@ function responseAsJson(response) {
   return response.body || response.text;
 }
 
-function resolveConversationId() {
-  return new Promise((resolve, reject) => {
-    const conversationId = getParameter(CONVERSATION_ID_PARAM);
-    if (conversationId === null) {
-      reject();
-    }
-
-    currentConversationId = conversationId;
-
-    resolve(currentConversationId);
-  });
-}
-
 function resolveLang() {
   return new Promise((resolve, reject) => {
     const lang = getParameter(LANG_PARAM);
@@ -318,6 +301,5 @@ export default {
   putJson,
   deleteJson,
   getParameter,
-  resolveConversationId,
   resolveLang
 };

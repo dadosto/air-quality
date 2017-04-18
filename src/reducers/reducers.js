@@ -28,7 +28,7 @@ const initialState = {
   }
 };
 
-export default function airQuality(state = initialState, action) {
+export default function airQuality(state = {}, action) {
   switch (action.type) {
     case GET_AIR_QUALITY_DATA_FOR_RANGE:
       return action.data;

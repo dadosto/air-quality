@@ -1,22 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAirQualityData } from '../service/AirQualityService';
+import { bindActionCreators } from 'redux';
+import { getAirQualityDataForDateRangeAndLocation } from '../actions/actions';
 
-class ChartPage extends React.class {
-  // TODO: Implement
+class ChartPage extends React.Component {
+  componentDidMount() {
+    const {
+      fetchData
+    } = this.props;
+
+    fetchData('2015-10-25T16:00:00', '2015-10-26T16:00:00', '40.7324296', '-73.9977264');
+  }
+
+  render() {
+    const {
+      data
+    } = this.props;
+    return (
+      <div>
+        {data}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    items: state.items,
-    hasErrored: state.itemsHasErrored,
-    isLoading: state.itemsIsLoading
+    data: state.data
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: getAirQualityData
+  const actions = {
+    fetchData: getAirQualityDataForDateRangeAndLocation
   };
+  return bindActionCreators(actions, dispatch);
 };
 
-export default connect(ChartPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ChartPage);
