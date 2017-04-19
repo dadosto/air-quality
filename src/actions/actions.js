@@ -1,6 +1,22 @@
-import { GET_AIR_QUALITY_DATA_FOR_RANGE } from './actionTypes';
+import { UPDATE_AIR_QUALITY_DATA_FOR_RANGE } from './actionTypes';
 
-export const saveAirQualityDataForDateRangeAndLocation = (dateTimeFrom, data) => ({
-  type: GET_AIR_QUALITY_DATA_FOR_RANGE,
+import {
+  getAirQualityData
+} from '../service/AirQualityService';
+
+export const updateAirQualityDataForDateRangeAndLocation = (dateTimeFrom, data) => ({
+  type: UPDATE_AIR_QUALITY_DATA_FOR_RANGE,
   data
 });
+
+export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, latitude, longitude) {
+  return dispatch => {
+    getAirQualityData(startDate, endDate, latitude, longitude)
+      .then(receivedData => {
+        console.log(`TEST data: ${receivedData}`);
+        dispatch(receivedData);
+      }, error => {
+        console.log(`'Error while fetching the data: ${error}`);
+      });
+  }
+}
