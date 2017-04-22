@@ -6,7 +6,7 @@ const queryParamLatitude = 'lat';
 const queryParamLongitude = 'lon';
 const queryParamKey = 'key';
 
-const apiKey = '005b69208ac0466d9dda0ac071349717';
+const apiKey = '4ac07b351af14425a34da29c92a63428';
 
 export const getDataFromServerUrl = () => {
   return serviceBaseUrl;
