@@ -3,25 +3,9 @@ import $ from 'jquery';
 const __DEV__ = true;
 
 
-const CONVERSATION_ID_PARAM = 'conversationId';
-const CONVERSATION_ID_HEADER = 'X-Conversation-Id';
-
 const LANG_PARAM = 'lang';
-const LANG_HEADER = 'Accept-Language';
 
-/**
- * Default values for timeout on request.
- *
- * response: Timeout if server doesn't respond for X ms.
- * deadline: Timeout if server doesn't finish loading for X ms.
- *
- * @type {{response: number, deadline: number}}
- */
-const defaultTimeout = {
-  response: 30 * 1000,  // Timeout if server doesn't respond for 30s,
-};
 
-let currentConversationId = '';
 let currentLang = '';
 
 /**
