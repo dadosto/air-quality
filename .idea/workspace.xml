@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7222d93a-0a8b-45c3-9c81-fea80bb04c66" name="Default" comment="added google search component">
+    <list default="true" id="7222d93a-0a8b-45c3-9c81-fea80bb04c66" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/GoogleSearch.jsx" afterPath="$PROJECT_DIR$/src/components/GoogleSearch.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/httpHelper.js" afterPath="$PROJECT_DIR$/src/service/httpHelper.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +22,7 @@
       <file leaf-file-name="App.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
+            <state relative-caret-position="96">
               <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
               <folding />
             </state>
@@ -70,9 +68,52 @@
         <entry file="file://$PROJECT_DIR$/src/service/httpHelper.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="668">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
+                <marker date="1492957313429" expanded="true" signature="1218:2029" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="1271:1805" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="1706:1799" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="1727:1763" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="1824:2008" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2031:2380" ph="/** Makes a 'POST' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="2420:3172" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2473:2946" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2613:2699" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2847:2940" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2868:2904" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="2965:3151" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="3174:3568" ph="/** Makes a 'PUT' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="3615:4350" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="3668:4126" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="3775:3860" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="4027:4120" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="4048:4084" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="4145:4329" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="4352:4827" ph="/** Makes a 'DELETE' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="4884:5691" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="4937:5461" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5048:5110" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5129:5217" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5362:5455" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5383:5419" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5480:5670" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5721:6005" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5830:5988" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="5934:5984" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="6007:6569" ph="/** Makes get request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="6614:6699" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="6701:7104" ph="/** Makes a 'DELETE' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="7152:7217" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="7219:7615" ph="/** Makes a 'POST' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="7659:7723" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="7725:8125" ph="/** Makes a 'PUT' request to the given endpoint. ...*/" />
+                <marker date="1492957313429" expanded="true" signature="8170:8235" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="8271:8371" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="8396:8591" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="8440:8587" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="8508:8531" ph="{...}" />
+                <marker date="1492957313429" expanded="true" signature="8626:8707" ph="{&quot;getJson&quot;: getJson...}" />
               </folding>
             </state>
           </provider>
@@ -91,8 +132,8 @@
       <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+            <state relative-caret-position="314">
+              <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -843,7 +884,7 @@
       <workItem from="1492793024943" duration="2506000" />
       <workItem from="1492858573675" duration="4086000" />
       <workItem from="1492888308615" duration="2058000" />
-      <workItem from="1492951676131" duration="4553000" />
+      <workItem from="1492951676131" duration="5638000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few components, root reducer, initial state...">
       <created>1490555781772</created>
@@ -873,11 +914,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492861420553</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="google search input css changes">
+      <created>1492957341841</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1492957341841</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101377000" />
+    <option name="totallyTimeSpent" value="102462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -968,7 +1016,8 @@
     <MESSAGE value="Added service urls file" />
     <MESSAGE value="Added http service, and methods for fetching AirQulity data.  Work in progress." />
     <MESSAGE value="added google search component" />
-    <option name="LAST_COMMIT_MESSAGE" value="added google search component" />
+    <MESSAGE value="google search input css changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="google search input css changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1249,7 +1298,7 @@
         <state relative-caret-position="112">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1315,14 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
@@ -1344,17 +1385,68 @@
     <entry file="file://$PROJECT_DIR$/src/service/httpHelper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
+            <marker date="1492957313429" expanded="true" signature="1218:2029" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="1271:1805" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="1706:1799" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="1727:1763" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="1824:2008" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2031:2380" ph="/** Makes a 'POST' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="2420:3172" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2473:2946" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2613:2699" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2847:2940" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2868:2904" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="2965:3151" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="3174:3568" ph="/** Makes a 'PUT' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="3615:4350" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="3668:4126" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="3775:3860" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="4027:4120" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="4048:4084" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="4145:4329" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="4352:4827" ph="/** Makes a 'DELETE' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="4884:5691" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="4937:5461" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5048:5110" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5129:5217" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5362:5455" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5383:5419" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5480:5670" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5721:6005" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5830:5988" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="5934:5984" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="6007:6569" ph="/** Makes get request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="6614:6699" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="6701:7104" ph="/** Makes a 'DELETE' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="7152:7217" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="7219:7615" ph="/** Makes a 'POST' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="7659:7723" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="7725:8125" ph="/** Makes a 'PUT' request to the given endpoint. ...*/" />
+            <marker date="1492957313429" expanded="true" signature="8170:8235" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="8271:8371" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="8396:8591" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="8440:8587" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="8508:8531" ph="{...}" />
+            <marker date="1492957313429" expanded="true" signature="8626:8707" ph="{&quot;getJson&quot;: getJson...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        <state relative-caret-position="314">
+          <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
           <folding />
         </state>
       </provider>
