@@ -62,7 +62,7 @@ class GoogleSearch extends React.Component {
   renderGeocodeSuccess(lat, lng) {
     return (
         <div className="alert alert-success" role="alert">
-          <strong>Success!</strong> Geocoder found latitude and longitude: <strong>{lat}, {lng}</strong>
+          Selected latitude and longitude: <strong>{lat}, {lng}</strong>
         </div>
     );
   }
@@ -75,12 +75,28 @@ class GoogleSearch extends React.Component {
       placeholder: 'Search Places...'
     };
 
+    const cssClasses = {
+      root: 'form-group',
+      input: 'google-search-input',
+      autocompleteContainer: 'google-search-autocomplete-container',
+    };
+
+    const AutocompleteItem = ({ formattedSuggestion }) => (
+        <div className="Demo__suggestion-item">
+          <i className='fa fa-map-marker Demo__suggestion-icon'/>
+          <strong>{formattedSuggestion.mainText}</strong>{' '}
+          <small className="text-muted">{formattedSuggestion.secondaryText}</small>
+        </div>);
+
     return (
         <div className="google-search-autocomplete">
           <PlacesAutocomplete
               inputProps={inputProps}
+              autocompleteItem={AutocompleteItem}
               onSelect={this.selectAddressHandler}
-              onEnterKeyDown={this.selectAddressHandler} />
+              onEnterKeyDown={this.selectAddressHandler}
+              classNames={cssClasses}
+          />
 
           {this.state.loading ? <div><i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" /></div> : null}
           {!this.state.loading && this.state.geocodeResults ?
