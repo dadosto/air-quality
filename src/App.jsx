@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
 import ChartPage from './components/ChartPage';
-import GoogleSearch from './components/GoogleSearch';
-
+import AirQualityMeter from './components/AirQualityMeter';
 
 import * as Actions from './actions/actions';
 
@@ -17,7 +16,7 @@ const App = ({data, actions}) => {
     <div className="App">
       <Header/>
       <ChartPage/>
-      <GoogleSearch />
+      <AirQualityMeter />
     </div>
   );
 };
