@@ -1,5 +1,5 @@
 import React from 'react';
-import {withGoogleMap, GoogleMap, Marker} from "react-google-maps";
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const defaultZoom = 11;
 
@@ -41,12 +41,8 @@ class Map extends React.Component {
     return (
         <div className="map-container">
           <GoogleMapWrapper
-              containerElement={
-                <div style={{ height: `100%` }}/>
-              }
-              mapElement={
-                <div style={{ height: `100%` }}/>
-              }
+              containerElement={<div style={{ height: `100%` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
               markers={[placeMarker]}
           />
         </div>

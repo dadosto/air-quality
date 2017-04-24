@@ -29,6 +29,7 @@ const mapStateToProps = (state) => {
     data: state.data
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   const actions = {
     fetchData: getAirQualityDataForDateRangeAndLocation

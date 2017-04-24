@@ -10,31 +10,32 @@ class GoogleSearch extends React.Component {
     super(props);
 
     this.state = {
-      address: '',
+      location: '',
       loading: false,
-      geocodeResults: null
+      geocodeResults: this.renderGeocodeSuccess(null, null)
     };
-    this.changeAddressHandler = this.changeAddressHandler.bind(this);
-    this.selectAddressHandler = this.selectAddressHandler.bind(this);
+
+    this.changeLocationHandler = this.changeLocationHandler.bind(this);
+    this.selectLocationHandler = this.selectLocationHandler.bind(this);
     this.renderGeocodeFailure = this.renderGeocodeFailure.bind(this);
     this.renderGeocodeSuccess = this.renderGeocodeSuccess.bind(this);
   }
 
-  changeAddressHandler(address) {
+  changeLocationHandler(location) {
     this.setState({
-      address,
-      geocodeResults: null
+      location,
+      geocodeResults: this.renderGeocodeSuccess(null, null)
     })
   }
 
-  selectAddressHandler(address) {
+  selectLocationHandler(location) {
 
     this.setState({
-      address,
+      location,
       loading: true
     });
 
-    geocodeByAddress(address,  (err, { lat, lng }) => {
+    geocodeByAddress(location, (err, { lat, lng }) => {
       if (err) {
         console.log('Oh no!', err);
         this.setState({
@@ -43,13 +44,13 @@ class GoogleSearch extends React.Component {
         });
       }
 
-      console.log(`Yay! got latitude and longitude for ${address}`, { lat, lng });
+      console.log(`Yay! got latitude and longitude for ${location}`, { lat, lng });
       this.setState({
         geocodeResults: this.renderGeocodeSuccess(lat, lng),
         loading: false
       });
 
-      this.props.addressChangeHandler({ address, latitude: lat, longitude: lng });
+      this.props.locationChangeHandler({ location, latitude: lat, longitude: lng });
 
     });
   }
@@ -58,15 +59,18 @@ class GoogleSearch extends React.Component {
   renderGeocodeFailure(err) {
     return (
         <div className="alert alert-danger" role="alert">
-          <strong>Error!</strong> {err}
+          <strong>Error while getting latitude and longitude!</strong> {err}
         </div>
     );
   }
 
   renderGeocodeSuccess(lat, lng) {
+
+    const latitudeAndLongitudeText = lat && lng && `${lat}, ${lng}`;
+
     return (
         <div className="alert alert-success" role="alert">
-          Selected latitude and longitude: <strong>{lat}, {lng}</strong>
+          Selected latitude and longitude: <strong> {latitudeAndLongitudeText} </strong>
         </div>
     );
   }
@@ -74,8 +78,8 @@ class GoogleSearch extends React.Component {
 
   render() {
     const inputProps = {
-      value: this.state.address,
-      onChange: this.changeAddressHandler,
+      value: this.state.location,
+      onChange: this.changeLocationHandler,
       placeholder: 'Search Places...'
     };
 
@@ -97,23 +101,27 @@ class GoogleSearch extends React.Component {
           <PlacesAutocomplete
               inputProps={inputProps}
               autocompleteItem={AutocompleteItem}
-              onSelect={this.selectAddressHandler}
-              onEnterKeyDown={this.selectAddressHandler}
+              onSelect={this.selectLocationHandler}
+              onEnterKeyDown={this.selectLocationHandler}
               classNames={cssClasses}
           />
 
-          {this.state.loading ? <div><i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner"/></div> : null}
-          {!this.state.loading && this.state.geocodeResults ?
-              <div className='geocoding-results'>{this.state.geocodeResults}</div> :
-              null}
-
+          <div className="geocoding-results">
+            {
+              this.state.loading ?
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner"/> : null
+            }
+            {!this.state.loading && this.state.geocodeResults ?
+                this.state.geocodeResults : null
+            }
+          </div>
         </div>
     );
   }
 }
 
 GoogleSearch.propTypes = {
-  addressChangeHandler: React.PropTypes.func.isRequired
+  locationChangeHandler: React.PropTypes.func.isRequired
 };
 
 export default GoogleSearch;

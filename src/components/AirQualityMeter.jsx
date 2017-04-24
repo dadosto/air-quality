@@ -11,10 +11,22 @@ class AirQualityMeter extends React.Component {
     super(props);
 
     this.state = {
+      location: 'Skopje, Macedonia (FYROM)',
       latitude: 41.9973462,
       longitude: 21.42799560000003
     };
 
+    this.locationChangeHandler = this.locationChangeHandler.bind(this);
+
+  }
+
+  locationChangeHandler(data) {
+
+    this.setState({
+      location: data.location,
+      latitude: data.latitude,
+      longitude: data.longitude
+    });
   }
 
   render() {
@@ -26,15 +38,8 @@ class AirQualityMeter extends React.Component {
 
     return (
         <div>
-          <GoogleSearch addressChangeHandler={
-            (data) => {
-              this.setState({
-                latitude: data.latitude,
-                longitude: data.longitude
-              });
-            }}
-          />
-          <Map latitude={latitude} longitude={longitude}/>
+          <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
+          <Map latitude={latitude} longitude={longitude} />
         </div>
     );
   }
