@@ -1,4 +1,5 @@
 import { UPDATE_AIR_QUALITY_DATA_FOR_RANGE } from './actionTypes';
+import { UPDATE_SELECTED_LOCATION } from './actionTypes';
 
 import {
   getAirQualityData
@@ -20,3 +21,13 @@ export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, lat
       });
   }
 }
+
+export const updateLocation = (latitude, longitude) => {
+  return {
+    type: UPDATE_SELECTED_LOCATION,
+    location: {
+      latitude,
+      longitude
+    }
+  };
+};

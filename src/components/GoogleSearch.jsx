@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as airQualityActions from '../actions/actions';
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 
 /**
@@ -60,6 +63,12 @@ class GoogleSearch extends React.Component {
   }
 
   renderGeocodeSuccess(lat, lng) {
+    const {
+      updateLocation
+    } = this.props;
+
+    updateLocation(lat, lng);
+
     return (
         <div className="alert alert-success" role="alert">
           Selected latitude and longitude: <strong>{lat}, {lng}</strong>
@@ -88,24 +97,38 @@ class GoogleSearch extends React.Component {
           <small className="text-muted">{formattedSuggestion.secondaryText}</small>
         </div>);
 
+    const {
+      location
+    } = this.props;
+
     return (
         <div className="google-search-autocomplete">
           <PlacesAutocomplete
               inputProps={inputProps}
-              autocompleteItem={AutocompleteItem}
               onSelect={this.selectAddressHandler}
-              onEnterKeyDown={this.selectAddressHandler}
-              classNames={cssClasses}
-          />
+              onEnterKeyDown={this.selectAddressHandler} />
 
           {this.state.loading ? <div><i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" /></div> : null}
           {!this.state.loading && this.state.geocodeResults ?
               <div className='geocoding-results'>{this.state.geocodeResults}</div> :
               null}
 
+          <div> {location} </div>
         </div>
     );
   }
 }
 
-export default GoogleSearch;
+const mapStateToProps = (state) => {
+  return {
+    location: state.location
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  const actions = {
+    updateLocation: airQualityActions.updateLocation
+  };
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleSearch);

@@ -35,7 +35,7 @@ class Map extends React.Component {
             defaultCenter={{ lat: latitude, lng: longitude }}
         >
           { props.markers.map((marker, index) => (
-              <Marker id={index} {...marker} />
+              <Marker id={index} {...marker} key={index}/>
           ))}
         </GoogleMap>
     ));
