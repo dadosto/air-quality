@@ -27,15 +27,13 @@ class Map extends React.Component {
       defaultAnimation: 2,
     };
 
-    console.log(this.props);
-
     const GoogleMapWrapper = withGoogleMap(props => (
         <GoogleMap
             defaultZoom={defaultZoom}
             defaultCenter={{ lat: latitude, lng: longitude }}
         >
           { props.markers.map((marker, index) => (
-              <Marker id={index} {...marker} />
+              <Marker key={index} {...marker} />
           ))}
         </GoogleMap>
     ));
