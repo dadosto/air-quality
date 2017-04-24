@@ -7,6 +7,6 @@ import {
 
 export const getAirQualityData = (startDateTime, endDateTime, latitude, longitude) => {
   const url = getDataFromServerUrl();
-  const queryParams = getQueryParams(startDateTime, endDateTime, 1, latitude, longitude);
+  const queryParams = getQueryParams(startDateTime, endDateTime, 24, latitude, longitude);
   return http.getJson(url, queryParams);
 };

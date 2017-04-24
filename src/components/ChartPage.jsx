@@ -9,7 +9,7 @@ class ChartPage extends React.Component {
       fetchData
     } = this.props;
 
-    fetchData('2015-10-25T16:00:00', '2015-10-26T16:00:00', '40.7324296', '-73.9977264');
+    fetchData('2015-10-25', '2015-10-25', '40.7324296', '-73.9977264');
   }
 
   render() {
