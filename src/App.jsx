@@ -8,7 +8,7 @@ import AirQualityMeter from './components/AirQualityMeter';
 
 import * as Actions from './actions/actions';
 
-const App = ({data, actions}) => {
+const App = ({data}) => {
 
   console.log('Data = ', data);
 
@@ -22,8 +22,7 @@ const App = ({data, actions}) => {
 };
 
 App.propTypes = {
-  data: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  data: PropTypes.object
 };
 
 const mapStateToProps = state => ({
