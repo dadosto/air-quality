@@ -49,6 +49,7 @@ body, #root, .page-wrapper {
   padding-left: 15px;
   padding-right: 15px;
   width: 750px;
+  position: relative;
 }
 
 .btn:hover {
@@ -105,6 +106,9 @@ body, #root, .page-wrapper {
   border-top: 1px solid #e6e6e6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 2px 2px;
+  z-index: 100;
+  width: 100%;
+  position: absolute;
 }
 
 .Demo__suggestion-item {
@@ -201,10 +205,11 @@ body, #root, .page-wrapper {
     margin-top: 1.5rem;
   }
 
-  .form-group {
+  .google-search-autocomplete-root {
     display: inline-block;
     width: 100%;
     margin: 5rem auto 15px;
+    position: relative;
   }
 }
 

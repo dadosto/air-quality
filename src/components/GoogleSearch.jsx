@@ -84,7 +84,7 @@ class GoogleSearch extends React.Component {
     };
 
     const cssClasses = {
-      root: 'form-group',
+      root: 'google-search-autocomplete-root',
       input: 'google-search-input',
       autocompleteContainer: 'google-search-autocomplete-container',
     };
