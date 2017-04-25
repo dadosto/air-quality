@@ -1,6 +1,9 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import GoogleSearch from './GoogleSearch';
 import Map from './Map';
+import * as AirQualityActions from '../actions/actions';
 
 /**
  * Air Quality Meter component.
@@ -21,12 +24,17 @@ class AirQualityMeter extends React.Component {
   }
 
   locationChangeHandler(data) {
+    const {
+      updateLocation
+    } = this.props;
 
     this.setState({
       location: data.location,
       latitude: data.latitude,
       longitude: data.longitude
     });
+
+    updateLocation(data.latitude, data.longitude);
   }
 
   render() {
@@ -45,4 +53,9 @@ class AirQualityMeter extends React.Component {
   }
 }
 
-export default AirQualityMeter;
+const mapDispatchToProps = dispatch => {
+  const allActions = Object.assign({}, { updateLocation: AirQualityActions.updateLocation });
+  return bindActionCreators(allActions, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(AirQualityMeter);

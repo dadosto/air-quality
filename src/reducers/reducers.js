@@ -30,6 +30,10 @@ export const initialState = {
       effects: "Particles enter the lungs and cause local and systemic inflammation in the respiratory system & heart, thus cause cardiovascular and respiratory diseases such as asthma and bronchitis.",
       causes: "Main sources are fuel burning processes in industry, transportation and indoor heating."
     }
+  },
+  location: {
+    latitude: 41.9973462,
+    longitude: 21.42799560000003
   }
 };
 
@@ -39,7 +43,7 @@ export default function airQuality(state = initialState, action) {
     case UPDATE_AIR_QUALITY_DATA_FOR_RANGE:
       return action.data;
     case UPDATE_SELECTED_LOCATION:
-      return action.location;
+      return Object.assign({}, {location: action.location});
     default:
       return state;
   }
