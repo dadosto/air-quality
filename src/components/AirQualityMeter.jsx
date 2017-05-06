@@ -1,8 +1,9 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import GoogleSearch from './GoogleSearch';
 import Map from './Map';
+import CircularProgressbar from 'react-circular-progressbar';
 import * as AirQualityActions from '../actions/actions';
 
 /**
@@ -16,7 +17,8 @@ class AirQualityMeter extends React.Component {
     this.state = {
       location: 'Skopje, Macedonia (FYROM)',
       latitude: 41.9973462,
-      longitude: 21.42799560000003
+      longitude: 21.42799560000003,
+      aqi: 60
     };
 
     this.locationChangeHandler = this.locationChangeHandler.bind(this);
@@ -34,22 +36,52 @@ class AirQualityMeter extends React.Component {
       longitude: data.longitude
     });
 
-    updateLocation(data.latitude, data.longitude);
+    updateLocation(data.latitude, data.longitude, data.location);
   }
 
   render() {
 
     const {
       latitude,
-      longitude
+      longitude,
+      aqi
     } = this.state;
+
+    const index = Math.floor(Math.random() * 100) + 1;
+    const airQualityDescription = AirQualityMeter.getAirQualityDescription(index);
 
     return (
         <div>
           <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
-          <Map latitude={latitude} longitude={longitude} />
+          <div className="map-and-quility-index-container">
+            <div className="circularProgressbar-wrapper">
+              <div className="air-quality-index-title">Air Quality Index</div>
+              <CircularProgressbar percentage={index} textForPercentage={(percent) => `${percent} aqi`}/>
+              <div className="air-quality-index-footer">{airQualityDescription}</div>
+            </div>
+            <Map latitude={latitude} longitude={longitude}/>
+          </div>
         </div>
     );
+  }
+
+  static getAirQualityDescription(aqi) {
+
+    let airQualityDescription = "Quality unknown";
+
+    if (aqi >= 0 && aqi < 20) {
+      airQualityDescription = 'Poor Air Quality';
+    } else if (aqi >= 20 && aqi < 40) {
+      airQualityDescription = 'Low Air Quality';
+    } else if (aqi >= 40 && aqi < 60) {
+      airQualityDescription = 'Moderate Air Quality';
+    } else if (aqi >= 60 && aqi < 80) {
+      airQualityDescription = 'Fair Air Quality';
+    } else if (aqi >= 80 && aqi <= 100) {
+      airQualityDescription = 'Excellent Air Quality';
+    }
+
+    return airQualityDescription;
   }
 }
 

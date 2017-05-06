@@ -12,19 +12,19 @@ class GoogleSearch extends React.Component {
     this.state = {
       location: '',
       loading: false,
-      geocodeResults: this.renderGeocodeSuccess(null, null)
+      geocodeResults: GoogleSearch.renderGeocodeSuccess(null, null)
     };
 
     this.changeLocationHandler = this.changeLocationHandler.bind(this);
     this.selectLocationHandler = this.selectLocationHandler.bind(this);
-    this.renderGeocodeFailure = this.renderGeocodeFailure.bind(this);
-    this.renderGeocodeSuccess = this.renderGeocodeSuccess.bind(this);
+    GoogleSearch.renderGeocodeFailure = GoogleSearch.renderGeocodeFailure.bind(this);
+    GoogleSearch.renderGeocodeSuccess = GoogleSearch.renderGeocodeSuccess.bind(this);
   }
 
   changeLocationHandler(location) {
     this.setState({
       location,
-      geocodeResults: this.renderGeocodeSuccess(null, null)
+      geocodeResults: GoogleSearch.renderGeocodeSuccess(null, null)
     })
   }
 
@@ -39,14 +39,14 @@ class GoogleSearch extends React.Component {
       if (err) {
         console.log('Oh no!', err);
         this.setState({
-          geocodeResults: this.renderGeocodeFailure(err),
+          geocodeResults: GoogleSearch.renderGeocodeFailure(err),
           loading: false
         });
       }
 
       console.log(`Yay! got latitude and longitude for ${location}`, { lat, lng });
       this.setState({
-        geocodeResults: this.renderGeocodeSuccess(lat, lng),
+        geocodeResults: GoogleSearch.renderGeocodeSuccess(lat, lng),
         loading: false
       });
 
@@ -56,7 +56,7 @@ class GoogleSearch extends React.Component {
   }
 
 
-  renderGeocodeFailure(err) {
+  static renderGeocodeFailure(err) {
     return (
         <div className="alert alert-danger" role="alert">
           <strong>Error while getting latitude and longitude!</strong> {err}
@@ -64,7 +64,7 @@ class GoogleSearch extends React.Component {
     );
   }
 
-  renderGeocodeSuccess(lat, lng) {
+  static renderGeocodeSuccess(lat, lng) {
 
     const latitudeAndLongitudeText = lat && lng && `${lat}, ${lng}`;
 

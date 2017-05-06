@@ -289,11 +289,50 @@ body, #root, .page-wrapper {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  float: right;
 }
 
 *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.circularProgressbar-wrapper {
+  float: left;
+  width: 170px;
+}
+
+.CircularProgressbar {
+  width: 170px;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #3e98c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: central;
+  text-anchor: middle;
+}
+
+.air-quality-index-footer, .air-quality-index-title {
+  margin: 15px 5px;
+}
+
+.map-and-quility-index-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 750px;
+  height: 300px;
 }
 

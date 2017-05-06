@@ -32,6 +32,7 @@ export const initialState = {
     }
   },
   location: {
+    address: 'Skopje, Macedonia (FYROM)',
     latitude: 41.9973462,
     longitude: 21.42799560000003
   }
@@ -43,7 +44,7 @@ export default function airQuality(state = initialState, action) {
     case UPDATE_AIR_QUALITY_DATA_FOR_RANGE:
       return action.data;
     case UPDATE_SELECTED_LOCATION:
-      return Object.assign({}, {location: action.location});
+      return Object.assign(state, {location: action.location});
     default:
       return state;
   }

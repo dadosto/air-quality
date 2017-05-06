@@ -22,12 +22,13 @@ export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, lat
   }
 }
 
-export const updateLocation = (latitude, longitude) => {
+export const updateLocation = (latitude, longitude, address) => {
   return {
     type: UPDATE_SELECTED_LOCATION,
     location: {
       latitude,
-      longitude
+      longitude,
+      address
     }
   };
 };

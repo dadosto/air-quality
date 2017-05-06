@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <div>
       <h2>Air Quality</h2>
-      <img src={logo} className="App-logo" alt="logo" />
     </div>
   );
 }
