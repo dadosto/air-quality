@@ -42,7 +42,7 @@ export default function airQuality(state = initialState, action) {
   console.log('Action = ', action);
   switch (action.type) {
     case UPDATE_AIR_QUALITY_DATA_FOR_RANGE:
-      return action.data;
+      return Object.assign(state, { data: action.data });
     case UPDATE_SELECTED_LOCATION:
       return Object.assign(state, { location: action.location });
     default:

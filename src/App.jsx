@@ -8,9 +8,10 @@ import AirQualityMeter from './components/AirQualityMeter';
 
 import * as Actions from './actions/actions';
 
-const App = ({data}) => {
+const App = ({data, location}) => {
 
   console.log('Data = ', data);
+  console.log('Location = ', location);
 
   return (
     <div className="App">
@@ -25,9 +26,9 @@ App.propTypes = {
   data: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-  data: state
-});
+const mapStateToProps = state => {
+  return { data: state.airQuality.data, location: state.airQuality.location };
+};
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Actions, dispatch)

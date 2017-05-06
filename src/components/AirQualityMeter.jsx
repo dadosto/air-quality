@@ -69,6 +69,13 @@ class AirQualityMeter extends React.Component {
   }
 }
 
+AirQualityMeter.propTypes = {
+  address: React.PropTypes.string.isRequired,
+  latitude: React.PropTypes.number.isRequired,
+  longitude: React.PropTypes.number.isRequired,
+  airQualityIndex: React.PropTypes.number.isRequired
+};
+
 const mapStateToProps = (state) => {
   return {
     address: state.airQuality.location.address,
