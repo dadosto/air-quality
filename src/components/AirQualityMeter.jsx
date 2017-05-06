@@ -13,28 +13,13 @@ class AirQualityMeter extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      location: 'Skopje, Macedonia (FYROM)',
-      latitude: 41.9973462,
-      longitude: 21.42799560000003,
-      aqi: 60
-    };
-
     this.locationChangeHandler = this.locationChangeHandler.bind(this);
-
   }
 
   locationChangeHandler(data) {
     const {
       updateLocation
     } = this.props;
-
-    this.setState({
-      location: data.location,
-      latitude: data.latitude,
-      longitude: data.longitude
-    });
 
     updateLocation(data.latitude, data.longitude, data.location);
   }
@@ -44,11 +29,10 @@ class AirQualityMeter extends React.Component {
     const {
       latitude,
       longitude,
-      aqi
-    } = this.state;
+      airQualityIndex,
+    } = this.props;
 
-    const index = Math.floor(Math.random() * 100) + 1;
-    const airQualityDescription = AirQualityMeter.getAirQualityDescription(index);
+    const airQualityDescription = AirQualityMeter.getAirQualityDescription(airQualityIndex);
 
     return (
         <div>
@@ -56,7 +40,7 @@ class AirQualityMeter extends React.Component {
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
-              <CircularProgressbar percentage={index} textForPercentage={(percent) => `${percent} aqi`}/>
+              <CircularProgressbar percentage={airQualityIndex} textForPercentage={(percent) => `${percent} aqi`}/>
               <div className="air-quality-index-footer">{airQualityDescription}</div>
             </div>
             <Map latitude={latitude} longitude={longitude}/>
@@ -85,9 +69,18 @@ class AirQualityMeter extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    address: state.airQuality.location.address,
+    latitude: state.airQuality.location.latitude,
+    longitude: state.airQuality.location.longitude,
+    airQualityIndex: state.airQuality.data.breezometer_aqi
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   const allActions = Object.assign({}, { updateLocation: AirQualityActions.updateLocation });
   return bindActionCreators(allActions, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(AirQualityMeter);
+export default connect(mapStateToProps, mapDispatchToProps)(AirQualityMeter);

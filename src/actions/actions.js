@@ -13,12 +13,12 @@ export const updateAirQualityDataForDateRangeAndLocation = (data) => ({
 export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, latitude, longitude) {
   return dispatch => {
     getAirQualityData(startDate, endDate, latitude, longitude)
-      .then(receivedData => {
-        console.log(`TEST data: ${JSON.stringify(receivedData[0])}`);
-        dispatch(updateAirQualityDataForDateRangeAndLocation(receivedData[0]));
-      }, error => {
-        console.log(`'Error while fetching the data: ${error}`);
-      });
+        .then(receivedData => {
+          console.log(`TEST data: ${JSON.stringify(receivedData[0])}`);
+          dispatch(updateAirQualityDataForDateRangeAndLocation(receivedData[0]));
+        }, error => {
+          console.log(`'Error while fetching the data: ${error}`);
+        });
   }
 }
 
