@@ -12,6 +12,10 @@ class Map extends React.Component {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.latitude !== nextProps.latitude || this.state.longitude !== nextState.longitude;
+  }
+
   render() {
 
     const {
