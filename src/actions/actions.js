@@ -14,8 +14,8 @@ export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, lat
   return dispatch => {
     getAirQualityData(startDate, endDate, latitude, longitude)
         .then(receivedData => {
-          console.log(`TEST data: ${JSON.stringify(receivedData[0])}`);
-          dispatch(updateAirQualityDataForDateRangeAndLocation(receivedData[0]));
+          console.log(`TEST data: ${JSON.stringify(receivedData)}`);
+          dispatch(updateAirQualityDataForDateRangeAndLocation(receivedData));
         }, error => {
           console.log(`'Error while fetching the data: ${error}`);
         });

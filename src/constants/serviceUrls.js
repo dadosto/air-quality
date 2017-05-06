@@ -13,9 +13,9 @@ export const getDataFromServerUrl = () => {
 };
 
 export const getQueryParams = (startDate, endDate, interval, latitude, longitude) => ({
-  [queryParamStartDateTime]: startDate,
+  /*[queryParamStartDateTime]: startDate,
   [queryParamEndDateTime]: endDate,
-  [queryParamInterval]: interval,
+  [queryParamInterval]: interval,*/
   [queryParamLatitude]: latitude,
   [queryParamLongitude]: longitude,
   [queryParamKey]: apiKey

@@ -18,10 +18,14 @@ class AirQualityMeter extends React.Component {
 
   locationChangeHandler(data) {
     const {
-      updateLocation
+      updateLocation,
+      fetchData
     } = this.props;
 
     updateLocation(data.latitude, data.longitude, data.location);
+
+    fetchData('2017-05-06', '2017-05-06', data.latitude, data.longitude);
+
   }
 
   render() {
@@ -36,7 +40,7 @@ class AirQualityMeter extends React.Component {
 
     return (
         <div>
-          <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
+          <GoogleSearch locationChangeHandler={this.locationChangeHandler}/>
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
@@ -86,7 +90,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  const allActions = Object.assign({}, { updateLocation: AirQualityActions.updateLocation });
+  const allActions =
+      Object.assign({}, {
+        updateLocation: AirQualityActions.updateLocation,
+        fetchData: AirQualityActions.getAirQualityDataForDateRangeAndLocation
+      });
   return bindActionCreators(allActions, dispatch);
 };
 
