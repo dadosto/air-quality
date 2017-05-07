@@ -208,7 +208,7 @@ body, #root, .page-wrapper {
   .google-search-autocomplete-root {
     display: inline-block;
     width: 100%;
-    margin: 5rem auto 15px;
+    margin: 10px auto 15px;
     position: relative;
   }
 }
@@ -300,7 +300,7 @@ body, #root, .page-wrapper {
 
 .circularProgressbar-wrapper {
   float: left;
-  width: 170px;
+  width: 200px;
 }
 
 .CircularProgressbar {
@@ -345,4 +345,22 @@ body, #root, .page-wrapper {
   padding: 15px 5px;
   font-size: 15px;
   font-weight: normal;
+}
+
+.air-quality-color-container {
+  position: relative;
+}
+
+.air-quality-color-text {
+  float: left;
+  margin-left: 20px;
+  line-height: 22px;
+}
+
+.air-quality-color {
+  float: left;
+  height: 22px;
+  width: 22px;
+  margin-left: 20px;
+  border: 1px solid black;
 }

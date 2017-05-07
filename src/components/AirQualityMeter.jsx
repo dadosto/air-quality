@@ -39,6 +39,10 @@ class AirQualityMeter extends React.Component {
       random_recommendations
     } = this.props;
 
+    const qualityColorStyle = {
+      backgroundColor: breezometer_color
+    };
+
     return (
         <div>
           <GoogleSearch locationChangeHandler={this.locationChangeHandler}/>
@@ -47,18 +51,22 @@ class AirQualityMeter extends React.Component {
               <div className="air-quality-index-title">Air Quality Index</div>
               <CircularProgressbar percentage={airQualityIndex} textForPercentage={(percent) => `${percent} aqi`}/>
               <div className="air-quality-index-footer">{breezometer_description}</div>
+              <div className="air-quality-color-container">
+                <span className="air-quality-color-text">Quality Color</span>
+                <span className="air-quality-color" style={qualityColorStyle}/>
+              </div>
             </div>
             <Map latitude={latitude} longitude={longitude}/>
             <div className="clearBoth"/>
             <div className="air-quality-recommendations">
               <div>Recommendations</div>
               <ul>
-              {
-                Object.keys(random_recommendations).map(function (key) {
-                  let recommendation = random_recommendations[key];
-                  return (<li key={key}>{key} - {recommendation}</li>);
-                })
-              }
+                {
+                  Object.keys(random_recommendations).map(function(key) {
+                    let recommendation = random_recommendations[key];
+                    return (<li key={key}>{key} - {recommendation}</li>);
+                  })
+                }
               </ul>
             </div>
           </div>
