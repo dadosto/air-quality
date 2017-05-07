@@ -1,10 +1,12 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import GoogleSearch from './GoogleSearch';
 import Map from './Map';
 import CircularProgressbar from 'react-circular-progressbar';
 import * as AirQualityActions from '../actions/actions';
+import { getCurrentDate, getDateFromTwoWeeksAgo } from '../util/dateUtils';
+import ChartPage from './ChartPage';
 
 /**
  * Air Quality Meter component.
@@ -22,17 +24,17 @@ class AirQualityMeter extends React.Component {
       fetchData
     } = this.props;
 
+    const currentDate = getCurrentDate();
+    const pastDate = getDateFromTwoWeeksAgo();
+
     updateLocation(data.latitude, data.longitude, data.location);
-
-    fetchData('2017-05-06', '2017-05-06', data.latitude, data.longitude);
-
+    fetchData(pastDate, currentDate, data.latitude, data.longitude);
   }
 
   render() {
 
     const {
-      latitude,
-      longitude,
+      location,
       airQualityIndex,
       breezometer_description,
       breezometer_color,
@@ -45,7 +47,7 @@ class AirQualityMeter extends React.Component {
 
     return (
         <div>
-          <GoogleSearch locationChangeHandler={this.locationChangeHandler}/>
+          <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
@@ -56,7 +58,8 @@ class AirQualityMeter extends React.Component {
                 <span className="air-quality-color" style={qualityColorStyle}/>
               </div>
             </div>
-            <Map latitude={latitude} longitude={longitude}/>
+            <Map latitude={location.latitude} longitude={location.longitude}/>
+            <ChartPage/>
             <div className="clearBoth"/>
             <div className="air-quality-recommendations">
               <div>Recommendations</div>
@@ -76,20 +79,20 @@ class AirQualityMeter extends React.Component {
 }
 
 AirQualityMeter.propTypes = {
-  address: React.PropTypes.string.isRequired,
-  latitude: React.PropTypes.number.isRequired,
-  longitude: React.PropTypes.number.isRequired,
   airQualityIndex: React.PropTypes.number.isRequired,
   breezometer_description: React.PropTypes.string.isRequired,
   breezometer_color: React.PropTypes.string.isRequired,
-  random_recommendations: React.PropTypes.object.isRequired
+  random_recommendations: React.PropTypes.object.isRequired,
+  location: React.PropTypes.shape({
+    address: React.PropTypes.string.isRequired,
+    latitude: React.PropTypes.number.isRequired,
+    longitude: React.PropTypes.number.isRequired
+  })
 };
 
 const mapStateToProps = (state) => {
   return {
-    address: state.airQuality.location.address,
-    latitude: state.airQuality.location.latitude,
-    longitude: state.airQuality.location.longitude,
+    location: state.airQuality.location,
     airQualityIndex: state.airQuality.data.breezometer_aqi,
     breezometer_description: state.airQuality.data.breezometer_description,
     breezometer_color: state.airQuality.data.breezometer_color,

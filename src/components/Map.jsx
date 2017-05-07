@@ -8,10 +8,6 @@ const defaultZoom = 11;
  */
 class Map extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.latitude !== nextProps.latitude || this.props.longitude !== nextProps.longitude;
   }

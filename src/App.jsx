@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
-import ChartPage from './components/ChartPage';
 import AirQualityMeter from './components/AirQualityMeter';
 
 import * as Actions from './actions/actions';
@@ -16,7 +15,6 @@ const App = ({data, location}) => {
   return (
     <div className="App">
       <Header/>
-      <ChartPage/>
       <AirQualityMeter />
     </div>
   );

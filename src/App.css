@@ -140,6 +140,7 @@ body, #root, .page-wrapper {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
+
 }
 
 @keyframes fa-spin {
@@ -363,4 +364,8 @@ body, #root, .page-wrapper {
   width: 22px;
   margin-left: 20px;
   border: 1px solid black;
+}
+
+.history-chart-container {
+  display:inline-block;
 }

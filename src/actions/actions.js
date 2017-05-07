@@ -1,24 +1,34 @@
-import { UPDATE_AIR_QUALITY_DATA_FOR_RANGE } from './actionTypes';
+import _ from 'lodash';
+
+import { UPDATE_CURRENT_DATA } from './actionTypes';
+import { UPDATE_HISTORY_DATA } from './actionTypes';
 import { UPDATE_SELECTED_LOCATION } from './actionTypes';
 
 import {
   getAirQualityData
 } from '../service/AirQualityService';
 
-export const updateAirQualityDataForDateRangeAndLocation = (data) => ({
-  type: UPDATE_AIR_QUALITY_DATA_FOR_RANGE,
+export const updateCurrentAirQualityData = (data) => ({
+  type: UPDATE_CURRENT_DATA,
   data
+});
+
+export const updateHistoryAirQualityDataForLocation = (historyData) => ({
+  type: UPDATE_HISTORY_DATA,
+  historyData
 });
 
 export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, latitude, longitude) {
   return dispatch => {
     getAirQualityData(startDate, endDate, latitude, longitude)
-        .then(receivedData => {
-          console.log(`TEST data: ${JSON.stringify(receivedData)}`);
-          dispatch(updateAirQualityDataForDateRangeAndLocation(receivedData));
-        }, error => {
-          console.log(`'Error while fetching the data: ${error}`);
-        });
+      .then(receivedData => {
+        console.log(`TEST data: ${JSON.stringify(receivedData)}`);
+        const mostRecentItem = _.last(receivedData);
+        dispatch(updateCurrentAirQualityData(mostRecentItem));
+        dispatch(updateHistoryAirQualityDataForLocation(receivedData));
+      }, error => {
+        console.log(`'Error while fetching the data: ${error}`);
+      });
   }
 }
 
