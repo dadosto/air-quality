@@ -343,4 +343,6 @@ body, #root, .page-wrapper {
 .air-quality-recommendations {
   text-align: left;
   padding: 15px 5px;
+  font-size: 15px;
+  font-weight: normal;
 }
