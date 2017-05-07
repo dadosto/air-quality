@@ -336,3 +336,11 @@ body, #root, .page-wrapper {
   height: 300px;
 }
 
+.clearBoth {
+  clear: both;
+}
+
+.air-quality-recommendations {
+  text-align: left;
+  padding: 15px 5px;
+}

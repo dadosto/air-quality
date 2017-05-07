@@ -34,9 +34,10 @@ class AirQualityMeter extends React.Component {
       latitude,
       longitude,
       airQualityIndex,
+      breezometer_description,
+      breezometer_color,
+      random_recommendations
     } = this.props;
-
-    const airQualityDescription = AirQualityMeter.getAirQualityDescription(airQualityIndex);
 
     return (
         <div>
@@ -45,31 +46,24 @@ class AirQualityMeter extends React.Component {
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
               <CircularProgressbar percentage={airQualityIndex} textForPercentage={(percent) => `${percent} aqi`}/>
-              <div className="air-quality-index-footer">{airQualityDescription}</div>
+              <div className="air-quality-index-footer">{breezometer_description}</div>
             </div>
             <Map latitude={latitude} longitude={longitude}/>
+            <div className="clearBoth"/>
+            <div className="air-quality-recommendations">
+              <div>Recommendations</div>
+              <ul>
+              {
+                Object.keys(random_recommendations).map(function (key) {
+                  let recommendation = random_recommendations[key];
+                  return (<li>{key}: {recommendation}</li>);
+                })
+              }
+              </ul>
+            </div>
           </div>
         </div>
     );
-  }
-
-  static getAirQualityDescription(aqi) {
-
-    let airQualityDescription = "Quality unknown";
-
-    if (aqi >= 0 && aqi < 20) {
-      airQualityDescription = 'Poor Air Quality';
-    } else if (aqi >= 20 && aqi < 40) {
-      airQualityDescription = 'Low Air Quality';
-    } else if (aqi >= 40 && aqi < 60) {
-      airQualityDescription = 'Moderate Air Quality';
-    } else if (aqi >= 60 && aqi < 80) {
-      airQualityDescription = 'Fair Air Quality';
-    } else if (aqi >= 80 && aqi <= 100) {
-      airQualityDescription = 'Excellent Air Quality';
-    }
-
-    return airQualityDescription;
   }
 }
 
@@ -77,7 +71,10 @@ AirQualityMeter.propTypes = {
   address: React.PropTypes.string.isRequired,
   latitude: React.PropTypes.number.isRequired,
   longitude: React.PropTypes.number.isRequired,
-  airQualityIndex: React.PropTypes.number.isRequired
+  airQualityIndex: React.PropTypes.number.isRequired,
+  breezometer_description: React.PropTypes.string.isRequired,
+  breezometer_color: React.PropTypes.string.isRequired,
+  random_recommendations: React.PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -85,7 +82,10 @@ const mapStateToProps = (state) => {
     address: state.airQuality.location.address,
     latitude: state.airQuality.location.latitude,
     longitude: state.airQuality.location.longitude,
-    airQualityIndex: state.airQuality.data.breezometer_aqi
+    airQualityIndex: state.airQuality.data.breezometer_aqi,
+    breezometer_description: state.airQuality.data.breezometer_description,
+    breezometer_color: state.airQuality.data.breezometer_color,
+    random_recommendations: state.airQuality.data.random_recommendations
   };
 };
 
