@@ -56,7 +56,7 @@ class AirQualityMeter extends React.Component {
               {
                 Object.keys(random_recommendations).map(function (key) {
                   let recommendation = random_recommendations[key];
-                  return (<li>{key}: {recommendation}</li>);
+                  return (<li>{key} - {recommendation}</li>);
                 })
               }
               </ul>
