@@ -346,6 +346,7 @@ body, #root, .page-wrapper {
   padding: 15px 5px;
   font-size: 15px;
   font-weight: normal;
+  float: left;
 }
 
 .air-quality-color-container {
@@ -368,4 +369,13 @@ body, #root, .page-wrapper {
 
 .history-chart-container {
   display:inline-block;
+}
+
+.air-quality-meter-widget {
+  float: left;
+  margin: 20px;
+}
+
+.recharts-cartesian-axis-ticks, .recharts-cartesian-axis-ticks {
+  font-size: 15px;
 }

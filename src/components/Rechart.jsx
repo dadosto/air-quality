@@ -14,11 +14,18 @@ class Rechart extends React.Component {
         margin={{top: 10, right: 30, left: 0, bottom: 0}}
         className="reChart"
       >
-        <XAxis dataKey="date"/>
+        <XAxis dataKey="date" />
         <YAxis/>
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
-        <Area type='monotone' dataKey='pollution' stroke='#089c7c' fill='#18bc9c' />
+        <Area
+            type='monotone'
+            name={"Air Quality Index"}
+            dataKey='airQualityIndex'
+            stroke='#089c7c'
+            fill='#18bc9c'
+        />
+        =
       </AreaChart>
     );
   }

@@ -6,5 +6,5 @@ export const getCurrentDate = () => {
 
 export const getDateFromTwoWeeksAgo = () => {
   const currentDate = moment.utc();
-  return currentDate.add(-13, 'days').format('YYYY-MM-DD');
+  return currentDate.add(-14, 'days').format('YYYY-MM-DD');
 };

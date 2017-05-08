@@ -11,7 +11,7 @@ export const mapAirQualityDataForDate = airQualityDataForSingleDate => {
   const date = createMomentDate(airQualityDataForSingleDate.datetime, dateInFormat);
   return {
     date: date.format(dateOutFormat),
-    pollution: airQualityDataForSingleDate.breezometer_aqi,
+    airQualityIndex: airQualityDataForSingleDate.breezometer_aqi,
     pv: 1,
     amt: 1
   };
