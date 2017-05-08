@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 const dateInFormat = "YYYY-MM-DDTHH:mm:ss";
-const dateOutFormat = "DD.MM.YYY";
+const dateOutFormat = "DD.MM.YYYY";
 
 const createMomentDate = (date, format) => {
   return moment.utc(date, format, true);

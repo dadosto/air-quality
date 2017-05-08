@@ -51,7 +51,11 @@ class AirQualityMeter extends React.Component {
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
-              <CircularProgressbar percentage={airQualityIndex} textForPercentage={(percent) => `${percent} aqi`}/>
+              <CircularProgressbar
+                percentage={airQualityIndex}
+                textForPercentage={percentage => `${percentage} aqi`}
+                classForPercentage={percentage => percentage > 50 ? 'high' : 'low'}
+              />
               <div className="air-quality-index-footer">{breezometer_description}</div>
               <div className="air-quality-color-container">
                 <span className="air-quality-color-text">Quality Color</span>
@@ -59,7 +63,6 @@ class AirQualityMeter extends React.Component {
               </div>
             </div>
             <Map latitude={location.latitude} longitude={location.longitude}/>
-            <ChartPage/>
             <div className="clearBoth"/>
             <div className="air-quality-recommendations">
               <div>Recommendations</div>
@@ -82,7 +85,7 @@ AirQualityMeter.propTypes = {
   airQualityIndex: React.PropTypes.number.isRequired,
   breezometer_description: React.PropTypes.string.isRequired,
   breezometer_color: React.PropTypes.string.isRequired,
-  random_recommendations: React.PropTypes.object.isRequired,
+  random_recommendations: React.PropTypes.shape({}),
   location: React.PropTypes.shape({
     address: React.PropTypes.string.isRequired,
     latitude: React.PropTypes.number.isRequired,

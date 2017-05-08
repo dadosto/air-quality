@@ -4,18 +4,16 @@ import { connect } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
 import AirQualityMeter from './components/AirQualityMeter';
+import ChartPage from './components/ChartPage';
 
 import * as Actions from './actions/actions';
 
 const App = ({data, location}) => {
-
-  console.log('Data = ', data);
-  console.log('Location = ', location);
-
   return (
     <div className="App">
       <Header/>
       <AirQualityMeter />
+      <ChartPage/>
     </div>
   );
 };

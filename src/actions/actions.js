@@ -22,7 +22,6 @@ export function getAirQualityDataForDateRangeAndLocation(startDate, endDate, lat
   return dispatch => {
     getAirQualityData(startDate, endDate, latitude, longitude)
       .then(receivedData => {
-        console.log(`TEST data: ${JSON.stringify(receivedData)}`);
         const mostRecentItem = _.last(receivedData);
         dispatch(updateCurrentAirQualityData(mostRecentItem));
         dispatch(updateHistoryAirQualityDataForLocation(receivedData));

@@ -8,16 +8,16 @@ import { mapAirQualityData } from '../util/ChartDataMapper';
 
 class ChartPage extends React.Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.historyData !== nextProps.historyData || this.props.historyData !== nextProps.historyData;
+  }
+
   render() {
     const {
       historyData
     } = this.props;
 
-    console.log(historyData);
-
     const chartData = mapAirQualityData(historyData);
-
-    console.log(chartData);
 
     return (
       <div className="history-chart-container">
