@@ -368,7 +368,9 @@ body, #root, .page-wrapper {
 }
 
 .history-chart-container {
-  display:inline-block;
+  display: inline-block;
+  float: left;
+  margin: 20px;
 }
 
 .air-quality-meter-widget {

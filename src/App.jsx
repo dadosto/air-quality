@@ -12,8 +12,10 @@ const App = ({data, location}) => {
   return (
     <div className="App">
       <Header/>
-      <AirQualityMeter />
-      <ChartPage/>
+      <div className="content">
+        <AirQualityMeter />
+        <ChartPage/>
+      </div>
     </div>
   );
 };

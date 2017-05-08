@@ -14,13 +14,15 @@ class ChartPage extends React.Component {
 
   render() {
     const {
-      historyData
+      historyData,
+      location
     } = this.props;
 
     const chartData = mapAirQualityData(historyData);
 
     return (
       <div className="history-chart-container">
+        <div>Air Quality in last two weeks in {location.address}</div>
         <Rechart data={chartData}/>
       </div>
     );

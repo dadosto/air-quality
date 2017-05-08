@@ -47,6 +47,7 @@ class AirQualityMeter extends React.Component {
 
     return (
         <div className="air-quality-meter-widget">
+          <div>Check Air Quality in given location</div>
           <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
@@ -65,7 +66,7 @@ class AirQualityMeter extends React.Component {
             <Map latitude={location.latitude} longitude={location.longitude}/>
             <div className="clearBoth"/>
             <div className="air-quality-recommendations">
-              <div>Recommendations</div>
+              <div>Air Quality Recommendations in {location.address}</div>
               <ul>
                 {
                   Object.keys(random_recommendations).map(function(key) {
