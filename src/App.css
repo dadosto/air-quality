@@ -381,3 +381,7 @@ body, #root, .page-wrapper {
 .recharts-cartesian-axis-ticks, .recharts-cartesian-axis-ticks {
   font-size: 15px;
 }
+
+.air-quality-dominant-pollutant {
+  text-align: left;
+}

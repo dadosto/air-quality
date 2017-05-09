@@ -1,11 +1,11 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import GoogleSearch from './GoogleSearch';
 import Map from './Map';
 import CircularProgressbar from 'react-circular-progressbar';
 import * as AirQualityActions from '../actions/actions';
-import { getCurrentDate, getDateFromTwoWeeksAgo } from '../util/dateUtils';
+import {getCurrentDate, getDateFromTwoWeeksAgo} from '../util/dateUtils';
 import ChartPage from './ChartPage';
 
 /**
@@ -38,8 +38,14 @@ class AirQualityMeter extends React.Component {
       airQualityIndex,
       breezometer_description,
       breezometer_color,
-      random_recommendations
+      random_recommendations,
+      dominant_pollutant_canonical_name,
+      dominant_pollutant_description,
+      dominant_pollutant_text
     } = this.props;
+
+    console.log(dominant_pollutant_canonical_name);
+    console.log(dominant_pollutant_description);
 
     const qualityColorStyle = {
       backgroundColor: breezometer_color
@@ -48,14 +54,14 @@ class AirQualityMeter extends React.Component {
     return (
         <div className="air-quality-meter-widget">
           <div>Check Air Quality in given location</div>
-          <GoogleSearch locationChangeHandler={this.locationChangeHandler} />
+          <GoogleSearch locationChangeHandler={this.locationChangeHandler}/>
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">
               <div className="air-quality-index-title">Air Quality Index</div>
               <CircularProgressbar
-                percentage={airQualityIndex}
-                textForPercentage={percentage => `${percentage} aqi`}
-                classForPercentage={percentage => percentage > 50 ? 'high' : 'low'}
+                  percentage={airQualityIndex}
+                  textForPercentage={percentage => `${percentage} aqi`}
+                  classForPercentage={percentage => percentage > 50 ? 'high' : 'low'}
               />
               <div className="air-quality-index-footer">{breezometer_description}</div>
               <div className="air-quality-color-container">
@@ -76,6 +82,18 @@ class AirQualityMeter extends React.Component {
                 }
               </ul>
             </div>
+            <div className="air-quality-dominant-pollutant">
+              <div>Dominant pollutant: {dominant_pollutant_canonical_name}</div>
+              <div>Dominant description: {dominant_pollutant_description}</div>
+              <ul>
+                {
+                  Object.keys(dominant_pollutant_text).map(function(key) {
+                    const pollutantText = dominant_pollutant_text[key];
+                    return (<li key={key}>{key} - {pollutantText}</li>);
+                  })
+                }
+              </ul>
+            </div>
           </div>
         </div>
     );
@@ -87,6 +105,9 @@ AirQualityMeter.propTypes = {
   breezometer_description: React.PropTypes.string.isRequired,
   breezometer_color: React.PropTypes.string.isRequired,
   random_recommendations: React.PropTypes.shape({}),
+  dominant_pollutant_canonical_name: React.PropTypes.string,
+  dominant_pollutant_description: React.PropTypes.string,
+  dominant_pollutant_text: React.PropTypes.shape({}),
   location: React.PropTypes.shape({
     address: React.PropTypes.string.isRequired,
     latitude: React.PropTypes.number.isRequired,
@@ -100,7 +121,10 @@ const mapStateToProps = (state) => {
     airQualityIndex: state.airQuality.data.breezometer_aqi,
     breezometer_description: state.airQuality.data.breezometer_description,
     breezometer_color: state.airQuality.data.breezometer_color,
-    random_recommendations: state.airQuality.data.random_recommendations
+    random_recommendations: state.airQuality.data.random_recommendations,
+    dominant_pollutant_canonical_name: state.airQuality.data.dominant_pollutant_canonical_name,
+    dominant_pollutant_description: state.airQuality.data.dominant_pollutant_description,
+    dominant_pollutant_text: state.airQuality.data.dominant_pollutant_text
   };
 };
 
