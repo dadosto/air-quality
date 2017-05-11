@@ -5,8 +5,8 @@ import GoogleSearch from './GoogleSearch';
 import Map from './Map';
 import CircularProgressbar from 'react-circular-progressbar';
 import * as AirQualityActions from '../actions/actions';
-import {getCurrentDate, getDateFromTwoWeeksAgo} from '../util/dateUtils';
-import ChartPage from './ChartPage';
+import {getTomorrowsDate, getDateFromTwoWeeksAgo} from '../util/dateUtils';
+
 
 /**
  * Air Quality Meter component.
@@ -18,17 +18,31 @@ class AirQualityMeter extends React.Component {
     this.locationChangeHandler = this.locationChangeHandler.bind(this);
   }
 
+  componentDidMount() {
+
+    const {
+      fetchData,
+      location
+    } = this.props;
+
+    const tomorrowsDate = getTomorrowsDate();
+    const pastDate = getDateFromTwoWeeksAgo();
+
+
+    fetchData(pastDate, tomorrowsDate, location.latitude, location.longitude);
+  }
+
   locationChangeHandler(data) {
     const {
       updateLocation,
       fetchData
     } = this.props;
 
-    const currentDate = getCurrentDate();
+    const tomorrowsDate = getTomorrowsDate();
     const pastDate = getDateFromTwoWeeksAgo();
 
     updateLocation(data.latitude, data.longitude, data.location);
-    fetchData(pastDate, currentDate, data.latitude, data.longitude);
+    fetchData(pastDate, tomorrowsDate, data.latitude, data.longitude);
   }
 
   render() {
@@ -43,9 +57,6 @@ class AirQualityMeter extends React.Component {
       dominant_pollutant_description,
       dominant_pollutant_text
     } = this.props;
-
-    console.log(dominant_pollutant_canonical_name);
-    console.log(dominant_pollutant_description);
 
     const qualityColorStyle = {
       backgroundColor: breezometer_color
