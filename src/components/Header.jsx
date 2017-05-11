@@ -3,8 +3,8 @@ import logo from '../../public/logo.png';
 
 export default function Header() {
   return (
-    <div>
-      <h2>Air Quality</h2>
+    <div className="app-header">
+      <h1>Air Quality</h1>
     </div>
   );
 }

@@ -22,7 +22,7 @@ class ChartPage extends React.Component {
 
     return (
       <div className="history-chart-container">
-        <div>Air Quality in last two weeks in {location.address}</div>
+        <div>Air Quality in the past two weeks for {location.address}</div>
         <Rechart data={chartData}/>
       </div>
     );

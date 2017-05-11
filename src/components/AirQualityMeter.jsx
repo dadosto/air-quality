@@ -64,7 +64,7 @@ class AirQualityMeter extends React.Component {
 
     return (
         <div className="air-quality-meter-widget">
-          <div>Check Air Quality in given location</div>
+          <div>Check the air quality for a given location</div>
           <GoogleSearch locationChangeHandler={this.locationChangeHandler}/>
           <div className="map-and-quility-index-container">
             <div className="circularProgressbar-wrapper">

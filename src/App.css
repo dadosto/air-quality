@@ -7,11 +7,15 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.app-header {
+  background-color: #777;
+  height: 65px;
+  padding: 7px 0 15px 0;
   color: white;
+}
+
+.rechart {
+  display: block;
 }
 
 .App-intro {
@@ -384,4 +388,5 @@ body, #root, .page-wrapper {
 
 .air-quality-dominant-pollutant {
   text-align: left;
+  font-size: 15px;
 }

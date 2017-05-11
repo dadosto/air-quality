@@ -70,7 +70,7 @@ class GoogleSearch extends React.Component {
 
     return (
         <div className="alert alert-success" role="alert">
-          Selected latitude and longitude: <strong> {latitudeAndLongitudeText} </strong>
+          Update Air Quality Data for the selected location: <strong> {latitudeAndLongitudeText} </strong>
         </div>
     );
   }
